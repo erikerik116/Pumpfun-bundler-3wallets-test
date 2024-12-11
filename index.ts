@@ -6,13 +6,6 @@ import base58 from "bs58"
 import { DESCRIPTION, FILE, PRIVATE_KEY, RPC_ENDPOINT, RPC_WEBSOCKET_ENDPOINT, TELEGRAM, TOKEN_CREATE_ON, TOKEN_NAME, TOKEN_SHOW_NAME, TOKEN_SYMBOL, TWITTER, WEBSITE, SWAP_AMOUNT } from "./constants"
 import { readJson, saveDataToFile, sleep } from "./utils"
 import { PumpFunSDK } from "./src/pumpfun";
-import {
-    NATIVE_MINT, TOKEN_PROGRAM_ID, createTransferCheckedInstruction,
-    createAssociatedTokenAccountIdempotentInstruction,
-    createCloseAccountInstruction, getAssociatedTokenAddress, getMint, getMinimumBalanceForRentExemptAccount,
-    createSyncNativeInstruction,
-    createAssociatedTokenAccountInstruction
-} from "@solana/spl-token";
 import { jitoWithAxios } from "./src/jitoWithAxios";
 
 
@@ -23,7 +16,6 @@ const connection = new Connection(RPC_ENDPOINT, {
 
 const mainKp = Keypair.fromSecretKey(base58.decode(PRIVATE_KEY))
 
-let kps: Keypair[] = []
 const versionedTxs: VersionedTransaction[] = []
 const mintKp = Keypair.generate()
 
@@ -149,7 +141,7 @@ const main = async () => {
             console.log("buyer keypair balance : ", buyerBalance)
 
 
-            const tokenBuyix = await makeBuyIx(mainKp, Math.floor(SWAP_AMOUNT * 10 ** 9))
+            const tokenBuyix = await makeBuyIx(buyerKp, Math.floor(SWAP_AMOUNT * 10 ** 9))
 
 
             if (!tokenBuyix) {
@@ -190,8 +182,6 @@ const main = async () => {
 
 
     }
-
-
 
 
 
