@@ -80,7 +80,7 @@ const main = async () => {
         console.log("Token mint error");
     }
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 1; i++) {
         const buyerKp = Keypair.generate();
         saveDataToFile([base58.encode(buyerKp.secretKey)], "data2.json")
         console.log("buyer=============>", base58.encode(buyerKp.secretKey));
@@ -97,14 +97,14 @@ const main = async () => {
             ]
             // const solAmountLamports = solAmount!.raw.toNumber(); // Convert to lamports
             // console.log(solAmount!.raw.toString())
-            const solAmountLamports = 0.002 * 10 ** 9; // Convert to lamports
+            const solAmountLamports = 0.005 * 10 ** 9; // Convert to lamports
             console.log("airdrop amount", solAmountLamports)
 
             ixs.push(
                 SystemProgram.transfer({
                     fromPubkey: mainKp.publicKey,  // Sender's public key
                     toPubkey: buyerKp.publicKey,  // Buyer's public key
-                    lamports: (solAmountLamports + 0.005 * 10 ** 9),
+                    lamports: (solAmountLamports + 0.002 * 10 ** 9),
                 }))
 
             const airdropRecentBlockhash = (await connection.getLatestBlockhash().catch(async () => {
@@ -186,7 +186,7 @@ const main = async () => {
 
 
     if (mode == "JITO_MODE") {
-        console.log("======================== Sell and Buy ========================")
+        console.log("======================== create and buy ========================")
         let result;
         while (1) {
             result = await jitoWithAxios(versionedTxs, mainKp)
