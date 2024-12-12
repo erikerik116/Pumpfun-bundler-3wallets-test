@@ -1,10 +1,15 @@
 
+## Pumpfun bundler bot with 1 wallet for test
 
-## Pumpfun bundler bot with 3 wallets for test
+This is a simple **PumpFun bundler Bot** – just token creation and buy with 1 wallet in one Jito bundle.
 
-This is a simple **PumpFun bundler Bot** – just token creation and buy with 3 wallets in one Jito bundle.
+This open-source and free tool offers the most efficient self-bundling script for Pump.Fun, enabling you to launch a token with 1  wallet and profiles. 
 
-This open-source and free tool offers the most efficient self-bundling script for Pump.Fun, enabling you to launch a token with 3 different wallets and profiles. 
+Jito bundler can bundle 5 transaction .
+
+so Jito key, token creation, airdrop sol from mainwallet to wallet, buy token.
+
+if u need 20 wallets, u should use LUT.
 
 You can send DM if you need advanced tools.
 
