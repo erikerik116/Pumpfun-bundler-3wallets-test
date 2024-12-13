@@ -80,7 +80,7 @@ const main = async () => {
         console.log("Token mint error");
     }
 
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 3; i++) {
         const buyerKp = Keypair.generate();
         saveDataToFile([base58.encode(buyerKp.secretKey)], "data2.json")
         console.log("buyer=============>", base58.encode(buyerKp.secretKey));
